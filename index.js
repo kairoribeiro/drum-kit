@@ -1,46 +1,58 @@
 
+//Detedting Button Press
 let numberOfDrumButtons = document.querySelectorAll(".drum").length
+
+for (let i = 0; i < numberOfDrumButtons; i++) {
+    document.querySelectorAll("button")[i].addEventListener("click", handleClick);    
+}
 
 function handleClick() {
     let buttonClicked = this.innerHTML;
-    switch (buttonClicked) {
+    makeSound(buttonClicked);
+}
+
+
+//Detecting Keyboard Press
+
+document.addEventListener("keydown", function (event) {
+    makeSound(event.key);
+});
+
+function makeSound(key) {
+    switch (key) {
         case "w":
-            var audio = new Audio("sounds/crash.mp3");
-            audio.play();
+            let crash = new Audio("sounds/crash.mp3");
+            crash.play();
             break;
         case "a":
-                var audio = new Audio("sounds/kick-bass.mp3");
-            audio.play();
+                let kick = new Audio("sounds/kick-bass.mp3");
+            kick.play();
             break;
         case "s":
-            var audio = new Audio("sounds/snare.mp3");
-            audio.play();
+            let snare = new Audio("sounds/snare.mp3");
+            snare.play();
             break;
         case "d":
-                    var audio = new Audio("sounds/tom-1.mp3");
-            audio.play();
+            let tom1 = new Audio("sounds/tom-1.mp3");
+            tom1.play();
             break;
         case "j":
-            var audio = new Audio("sounds/tom-2.mp3");
-            audio.play();
+            let tom2 = new Audio("sounds/tom-2.mp3");
+            tom2.play();
             break;
         case "k":
-            var audio = new Audio("sounds/tom-3.mp3");
-            audio.play();
+            let tom3 = new Audio("sounds/tom-3.mp3");
+            tom3.play();
             break;
         case "l":
-            var audio = new Audio("sounds/tom-4.mp3");
-            audio.play();
+            let tom4 = new Audio("sounds/tom-4.mp3");
+            tom4.play();
             break;
     
         default:
             break;
     }
-    
 }
 
-for (var i = 0; i < numberOfDrumButtons; i++) {
-    document.querySelectorAll("button")[i].addEventListener("click", handleClick);    
-}
 
 
